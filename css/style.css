@@ -132,7 +132,9 @@ a {
   cursor: pointer;
 }
 
-.button_bg_orange:hover {
+.button_bg_orange:hover,
+.button_bg_orange:focus {
+  outline: none;
   opacity: 0.6;
 }
 
@@ -159,10 +161,6 @@ a {
   cursor: pointer;
 }
 
-.page-header__burger:focus {
-  outline: none;
-}
-
 .page-header__burger::before,
 .page-header__burger::after {
   content: "";
@@ -179,18 +177,25 @@ a {
   transition: var(--transition-time) var(--transition-function);
 }
 
-.page-header__burger:hover::before {
+.page-header__burger:hover::before,
+.page-header__burger:focus::before {
   background-color: var(--color-orange);
 }
 
-.page-header__burger:hover .burger__line {
+.page-header__burger:hover .burger__line,
+.page-header__burger:focus .burger__line {
   width: 25px;
   background-color: var(--color-orange);
 }
 
-.page-header__burger:hover::after {
+.page-header__burger:hover::after,
+.page-header__burger:focus::after {
   width: 18px;
   background-color: var(--color-orange);
+}
+
+.page-header__burger:focus {
+  outline: none;
 }
 
 .page-header__logo {
@@ -245,8 +250,13 @@ a {
   transition: opacity var(--transition-time) var(--transition-function);
 }
 
-.nav-list__link:hover::after {
+.nav-list__link:hover::after,
+.nav-list__link:focus::after {
   opacity: 1;
+}
+
+.nav-list__link:focus {
+  outline: none;
 }
 
 .page-header__search-button {
@@ -270,12 +280,18 @@ a {
   transition: stroke var(--transition-time) var(--transition-function);
 }
 
-.page-header__search-button:hover rect {
+.page-header__search-button:hover rect,
+.page-header__search-button:focus rect {
   fill: var(--color-orange);
 }
 
-.page-header__search-button:hover circle {
+.page-header__search-button:hover circle,
+.page-header__search-button:focus circle {
   stroke: var(--color-orange);
+}
+
+.page-header__search-button:focus {
+  outline: none;
 }
 
 /* Main */
@@ -401,8 +417,10 @@ a {
   transition: background-color var(--transition-time) var(--transition-function);
 }
 
-.about-section-details__button:hover {
+.about-section-details__button:hover,
+.about-section-details__button:focus {
   background-color: var(--color-orange);
+  outline: none;
 }
 
 .about-section__advantage {
@@ -480,8 +498,10 @@ a {
   cursor: pointer;
 }
 
-.steps-list__button:hover {
+.steps-list__button:hover,
+.steps-list__button:focus {
   color: var(--color-orange);
+  outline: none;
 }
 
 .steps-list__button_active {
@@ -526,9 +546,11 @@ a {
   transition: var(--transition-time) var(--transition-function);
 }
 
-.work-section__button_transparent:hover {
+.work-section__button_transparent:hover,
+.work-section__button_transparent:focus {
   color: var(--color-white);
   background-color: var(--color-grey);
+  outline: none;
 }
 
 .work-section__image {
@@ -595,12 +617,18 @@ a {
   transition: fill var(--transition-time) var(--transition-function);
 }
 
-.faq-list-item__button:hover ellipse {
+.faq-list-item__button:hover ellipse,
+.faq-list-item__button:focus ellipse {
   fill: #d2d2d2;
 }
 
-.faq-list-item__button:hover path {
+.faq-list-item__button:hover path,
+.faq-list-item__button:focus path {
   fill: #000000;
+}
+
+.faq-list-item__button:focus {
+  outline: none;
 }
 
 /* Footer */
