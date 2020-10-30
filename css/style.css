@@ -398,7 +398,6 @@ a {
   bottom: 28px;
   left: 50%;
   padding: 7px;
-  min-width: 300px;
   text-align: center;
   line-height: var(--line-height-xs);
   color: var(--color-white);
@@ -1470,7 +1469,9 @@ a {
   }
 
   .work-section__button {
-    padding: 14px 44px;
+    padding: 14px 10px;
+    width: 162px;
+    text-align: center;
     font-size: 12px;
   }
 
@@ -1479,7 +1480,8 @@ a {
   }
 
   .work-section__button_transparent {
-    padding: 13px 32px;
+    padding: 13px 10px;
+    width: 118px;
   }
 
   /* FAQ section */
