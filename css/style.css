@@ -143,7 +143,6 @@ a {
 
 .button_bg_orange:hover,
 .button_bg_orange:focus {
-  outline: none;
   opacity: 0.6;
 }
 
@@ -203,10 +202,6 @@ a {
   background-color: var(--color-orange);
 }
 
-.page-header__burger:focus {
-  outline: none;
-}
-
 .page-header__logo {
   display: flex;
   align-items: center;
@@ -264,10 +259,6 @@ a {
   opacity: 1;
 }
 
-.nav-list__link:focus {
-  outline: none;
-}
-
 .page-header__search-button {
   margin-left: 59px;
   padding: 0 12px;
@@ -299,23 +290,33 @@ a {
   stroke: var(--color-orange);
 }
 
-.page-header__search-button:focus {
-  outline: none;
-}
-
 /* Main */
 
 /* Hero section */
 
-.hero-section__wrapper {
+.page-main__hero {
   margin-bottom: 103px;
+}
+
+.swiper-slide {
   padding: 108px 0 91px 80px;
   min-height: 620px;
-  background-image: url(../img/UI/low-angle-photo-of-balconies.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-color: var(--color-darkgrey);
+}
+
+.slide-1 {
+  background-image: url(../img/UI/low-angle-photo-of-balconies.jpg);
+}
+
+.slide-2 {
+  background-image: url(../img/UI/brown-and-blue-glass-building.jpg);
+}
+
+.slide-3 {
+  background-image: url(../img/UI/apartment-apartment-building-architecture-building.jpg);
 }
 
 .hero-section__title {
@@ -342,27 +343,28 @@ a {
   font-size: var(--font-size-m);
 }
 
-.hero-section__carousel-control {
-  display: none;
+.swiper-container-horizontal>.swiper-pagination-bullets {
+  bottom: 20px;
 }
 
-.carousel-control__button {
+.swiper-pagination-bullet {
   width: 15px;
   height: 15px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.4);
+  opacity: 1;
   cursor: pointer;
 }
 
-.carousel-control__button:not(:last-child) {
-  margin-right: 20px;
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 10px;
 }
 
-.carousel-control__button:hover {
+.swiper-pagination-bullet:hover {
   border: 1px solid var(--color-white);
 }
 
-.carousel-control__button_active {
+.swiper-pagination-bullet-active {
   background-color: var(--color-white);
 }
 
@@ -419,7 +421,8 @@ a {
   transform: translateX(-50%) rotate(45deg);
 }
 
-.about-section-description__tooltip:hover .tooltip__text {
+.about-section-description__tooltip:hover .tooltip__text,
+.about-section-description__tooltip:focus .tooltip__text {
   opacity: 1;
 }
 
@@ -460,7 +463,6 @@ a {
 .about-section-details__button:hover,
 .about-section-details__button:focus {
   background-color: var(--color-orange);
-  outline: none;
 }
 
 .about-section__advantage {
@@ -541,7 +543,6 @@ a {
 .steps-list__button:hover,
 .steps-list__button:focus {
   color: var(--color-orange);
-  outline: none;
 }
 
 .steps-list__button_active {
@@ -590,7 +591,10 @@ a {
 .work-section__button_transparent:focus {
   color: var(--color-white);
   background-color: var(--color-grey);
-  outline: none;
+}
+
+.work-section__button_transparent:focus {
+  outline: 2px solid var(--color-orange);
 }
 
 .work-section__image {
@@ -617,8 +621,8 @@ a {
 
 .faq-list__item {
   display: flex;
-  align-items: center;
-  padding: 32px 0 31px;
+  flex-direction: column;
+  padding: 31px 0;
   border-bottom: 1px solid var(--color-lightgrey);
 }
 
@@ -626,17 +630,53 @@ a {
   border-top: 1px solid var(--color-lightgrey);
 }
 
-.faq-list-item__title {
-  margin-right: 30px;
+.faq-list-item .faq-list-item__title {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
   font-weight: var(--font-weight-bold);
+  color: var(--color-grey);
+  background-color: transparent;
   transition: color var(--transition-time) var(--transition-function);
-  cursor: pointer;
+  outline: none;
 }
 
 .faq-list-item__title:hover,
-.faq-list-item__title:hover .faq-list-item__slash {
+.faq-list-item__title:hover .faq-list-item__slash,
+.faq-list-item__title:focus,
+.faq-list-item__title:focus .faq-list-item__slash {
   color: var(--color-orange);
+}
+
+.faq-list-item__title:hover .ui-icon,
+.faq-list-item__title:focus .ui-icon {
+  opacity: 1;
+}
+
+.ui-icon,
+.ui-state-hover .ui-icon,
+.ui-state-focus .ui-icon {
+  flex-shrink: 0;
+  margin-top: 0;
+  margin-left: 100px;
+  width: 50px;
+  height: 50px;
+  background-image: url(../img/UI/+х.svg);
+  opacity: 0.55;
+  transition: var(--transition-time) var(--transition-function);
+}
+
+.ui-state-active .ui-icon {
+  background-image: url(../img/UI/+х.svg);
+  transform: rotate(45deg);
+  opacity: 1;
 }
 
 .faq-list-item__slash {
@@ -644,31 +684,16 @@ a {
   transition: color var(--transition-time) var(--transition-function);
 }
 
-.faq-list-item__button {
-  margin-left: auto;
-  height: 50px;
+.faq-list-item .faq-list-item__content {
+  padding: 0;
   border: none;
-  background-color: transparent;
-  cursor: pointer;
 }
 
-.faq-list-item__button ellipse,
-.faq-list-item__button path {
-  transition: fill var(--transition-time) var(--transition-function);
-}
-
-.faq-list-item__button:hover ellipse,
-.faq-list-item__button:focus ellipse {
-  fill: #d2d2d2;
-}
-
-.faq-list-item__button:hover path,
-.faq-list-item__button:focus path {
-  fill: #000000;
-}
-
-.faq-list-item__button:focus {
-  outline: none;
+.faq-list-item__text {
+  margin-top: 30px;
+  max-width: 1000px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: var(--line-height-m);
 }
 
 /* Footer */
@@ -754,6 +779,7 @@ a {
   margin-left: -2px;
   font-size: var(--font-size-l);
   line-height: var(--line-height-l);
+  font-weight: normal;
 }
 
 .footer-form__input {
@@ -782,13 +808,15 @@ a {
 
 .footer-form__button {
   flex-shrink: 0;
-  margin-right: 30px;
+  margin-right: 22px;
   padding: 23px 52px 21px;
 }
 
 .footer-form__checkbox {
   position: absolute;
   right: 0;
+  width: 1px;
+  height: 1px;
   opacity: 0;
 }
 
@@ -920,6 +948,24 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    outline-offset: 10px;
+  }
+
+  .page-header__burger_active .burger__line {
+    display: none;
+  }
+
+  .page-header__burger_active::before {
+    transform: translateY(10px) rotate(45deg);
+  }
+
+  .page-header__burger_active::after {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+
+  .page-header__burger_active:hover::after,
+  .page-header__burger_active:focus::after {
+    width: 100%;
   }
 
   .page-header__logo img {
@@ -933,6 +979,41 @@ a {
 
   .header-nav__list {
     display: none;
+    position: absolute;
+    top: 99px;
+    left: 0;
+    z-index: 10;
+    flex-direction: column;
+    padding: 40px;
+    background-color: var(--color-white);
+  }
+
+  .header-nav__list_active {
+    display: block;
+  }
+
+  .nav-list__item {
+    font-size: var(--font-size-m);
+  }
+  
+  .nav-list__item:not(:last-child) {
+    margin-bottom: 30px;
+    margin-right: 0;
+  }
+  
+  .nav-list__link {
+    margin-top: 0;
+    transition: color var(--transition-time) var(--transition-function);
+  }
+  
+  .nav-list__link:hover,
+  .nav-list__link:focus {
+    color: var(--color-orange);
+  }
+
+  .nav-list__link::before,
+  .nav-list__link::after {
+    display: none;
   }
 
   .page-header__search-button {
@@ -942,10 +1023,16 @@ a {
 
   /* Hero section */
 
-  .hero-section__wrapper {
+  .page-main__hero {
     margin-bottom: 61px;
-    padding: 165px 0 30px 45px;
+  }
+  
+  .swiper-slide {
+    padding: 165px 0 114px 45px;
     min-height: 668px;
+  }
+
+  .slide-1 {
     background-image: url(../img/UI/low-angle-photo-of-balconies-1024.jpg);
     background-position: bottom;
   }
@@ -967,13 +1054,6 @@ a {
   .hero-section__button {
     margin-top: 110px;
     padding: 28px 38px 26px;
-  }
-
-  .hero-section__carousel-control {
-    display: flex;
-    justify-content: center;
-    margin-top: 69px;
-    margin-left: -45px;
   }
 
   /* About section */
@@ -1061,30 +1141,18 @@ a {
     padding: 0;
   }
 
-  .faq-list__item {
-    padding: 0;
-  }
-
-  .faq-list-item__title {
-    margin-right: 30px;
-    max-width: 81%;
+  .faq-list-item .faq-list-item__title {
     font-size: 20px;
   }
 
-  .faq-list-item__button {
-    margin-top: 32px;
-    margin-bottom: 31px;
-  }
-
-  .faq-list__item:first-child .faq-list-item__button {
-    margin-top: 42px;
-    margin-bottom: 31px;
+  .faq-list-item__text {
+    max-width: 80%;
   }
 
   /* Footer */
 
   .footer-form__button {
-    margin-right: 23px;
+    margin-right: 14px;
     padding: 23px 38px 21px;
   }
 }
@@ -1098,18 +1166,27 @@ a {
     height: 69px;
   }
 
+  .header-nav__list {
+    top: 68px;
+  }
+
   .page-header__search-button svg {
     transform: none;
   }
 
   /* Hero section */
 
-  .hero-section {
+  .page-main__hero {
     padding: 0;
+    margin-bottom: 61px;
+  }
+  
+  .swiper-slide {
+    padding: 195px 21px 114px 49px;
+    min-height: 699px;
   }
 
-  .hero-section__wrapper {
-    padding: 195px 21px 30px 49px;
+  .slide-1 {
     background-image: url(../img/UI/low-angle-photo-of-balconies-768.jpg);
   }
 
@@ -1117,10 +1194,6 @@ a {
     margin-bottom: 8px;
     font-size: 60px;
     line-height: 73px;
-  }
-
-  .hero-section__carousel-control {
-    margin-left: -28px;
   }
 
   /* About sectoin */
@@ -1258,6 +1331,29 @@ a {
     height: 19px;
   }
 
+  .page-header__burger:hover .burger__line,
+  .page-header__burger:focus .burger__line {
+    width: 20px;
+  }
+
+  .page-header__burger:hover::after,
+  .page-header__burger:focus::after {
+    width: 14px;
+  }
+
+  .page-header__burger_active::before {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .page-header__burger_active::after {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .page-header__burger_active:hover::after,
+  .page-header__burger_active:focus::after {
+    width: 100%;
+  }
+
   .page-header__logo img {
     width: 97px;
     height: 31px;
@@ -1265,6 +1361,23 @@ a {
 
   .page-header__nav {
     position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .header-nav__list {
+    top: 44px;
+    padding: 30px;
+    width: 100vw;
+  }
+
+  .nav-list__item {
+    text-align: center;
+    font-size: var(--font-size-xs);
+  }
+
+  .nav-list__item:not(:last-child) {
+    margin-bottom: 20px;
   }
 
   .page-header__search-button {
@@ -1273,12 +1386,14 @@ a {
 
   /* Hero section */
 
-  .hero-section__wrapper {
+  .page-main__hero {
     margin-bottom: 41px;
+  }
+  
+  .swiper-slide {
     padding: 33px 22px 40px;
-    min-height: unset;
+    min-height: 262px;
     text-align: center;
-    background-image: url(../img/UI/low-angle-photo-of-balconies-768.jpg);
   }
 
   .hero-section__title {
@@ -1306,8 +1421,17 @@ a {
     font-size: 12px;
   }
 
-  .hero-section__carousel-control {
-    display: none;
+  .swiper-container-horizontal>.swiper-pagination-bullets {
+    bottom: 4px;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 9px;
+    height: 9px;
+  }
+
+  .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 6px;
   }
 
   /* About section */
@@ -1500,29 +1624,26 @@ a {
     padding: 21px 0 22px;
   }
 
-  .faq-list-item__title {
-    margin-right: 30px;
-    width: 100%;
+  .faq-list-item .faq-list-item__title {
     font-size: 14px;
     line-height: 24px;
     font-weight: var(--font-weight-medium);
   }
 
-  .faq-list-item__button {
-    margin-top: 0;
-    margin-bottom: 0;
+  .ui-icon,
+  .ui-state-hover .ui-icon,
+  .ui-state-focus .ui-icon {
+    margin-left: 30px;
     width: 30px;
     height: 30px;
+    background-size: contain;
   }
 
-  .faq-list__item:first-child .faq-list-item__button {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .faq-list-item__button svg {
-    width: 30px;
-    height: 30px;
+  .faq-list-item__text {
+    margin-top: 15px;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 28px;
   }
 
   /* Footer */
