@@ -646,6 +646,7 @@ a {
   background-color: transparent;
   transition: color var(--transition-time) var(--transition-function);
   outline: none;
+  cursor: pointer;
 }
 
 .faq-list-item__title:hover,
@@ -832,8 +833,8 @@ a {
   display: inline-block;
   margin-right: 4px;
   border: 1px solid var(--color-lightgrey);
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   vertical-align: text-top;
 }
 
@@ -845,13 +846,12 @@ a {
   content: "";
   position: absolute;
   left: 3px;
-  top: 8px;
-  width: 2px;
-  height: 2px;
-  background: #97EE3F;
-  box-shadow: 2px 0 0 #97EE3F, 4px 0 0 #97EE3F, 4px -2px 0 #97EE3F, 4px -4px 0 #97EE3F,
-    4px -5px 0 #97EE3F, 4px -7px 0 #97EE3F;
-  transform: rotate(45deg);
+  top: 5px;
+  width: 6px;
+  height: 3px;
+  border-left: 2px solid #97EE3F;
+  border-bottom: 2px solid #97EE3F;
+  transform: rotate(-45deg);
 }
 
 .page-footer__right {
@@ -1692,18 +1692,8 @@ a {
     line-height: var(--line-height-m);
   }
 
-  .footer-form__agreement::before {
-    margin-right: 5px;
-    width: 13px;
-    height: 13px;
-    vertical-align: text-top;
-  }
-
   .footer-form__checkbox:checked + .footer-form__agreement::after {
-    left: 3px;
-    top: 14px;
-    box-shadow: 2px 0 0 #97EE3F, 4px 0 0 #97EE3F, 4px -2px 0 #97EE3F, 4px -4px 0 #97EE3F,
-    4px -5px 0 #97EE3F, 4px -6px 0 #97EE3F;
+    top: 11px;
   }
 
   .page-footer__left {
