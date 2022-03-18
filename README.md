@@ -1,2 +1,3 @@
 # skillbox-responsive-layout
-Адаптивная веб-страница с подключением плагинов swiper.js и jQuery accordion.
+
+Responsive web page with swiper.js and jQuery accordion plugins.
